@@ -1,0 +1,151 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: rgb(150, 136, 91);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    text-transform: capitalize;
+}
+
+.game-box {
+    display: block;
+    position: relative;
+    width: 80rem;
+    height: 39.5rem;
+    margin: 2rem auto;
+    background: rgb(156, 114, 114);
+    border: .5rem solid rgb(46, 41, 23);
+    overflow: hidden;
+}
+
+#start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80rem;
+    height: 39.5rem;
+    line-height: 39.5rem;
+    background: #000;
+    cursor: pointer;
+    z-index: 2;
+    color: red;
+    text-align: center;
+    font-size: 15rem;
+    opacity: 1;
+    transition: all .5s ease-in;
+}
+
+.healer {
+    display: block;
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(233, 41, 41);
+    background: rgb(255, 255, 255);
+    border: .25rem solid rgb(233, 41, 41);
+    transition: all .1s ease;
+    z-index: 1;
+}
+
+.control {
+    display: block;
+    position: relative;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 100%;
+    margin: 3rem auto 0 auto;
+    background: rgb(24, 23, 23);
+}
+
+.up, .right, .down, .left {
+    position: absolute;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 2.5rem;
+    border-radius: 100%;
+    background: rgb(102, 95, 70);
+    color: rgb(26, 25, 24);
+    cursor: pointer;
+}
+
+.up:hover, .right:hover, .down:hover, .left:hover {
+    background: rgba(102, 95, 70, .4) !important;
+}
+
+.up:active, .right:active, .down:active, .left:active {
+    background: rgba(102, 95, 70, .6) !important;
+}
+
+.up {
+    top: 0.5rem;
+    left: 4rem;
+}
+
+.right {
+    top: 4rem;
+    right: 0.5rem;
+}
+
+.down {
+    bottom: 0.5rem;
+    left: 4rem;
+}
+
+.left {
+    top: 4rem;
+    left: 0.5rem;
+}
+
+#patient {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background: yellow;
+    color: rgb(219, 42, 42);
+}
+
+.score {
+    display: block;
+    width: 15rem;
+    height: 5rem;
+    line-height: 4.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(26, 25, 24);
+    background: rgb(102, 95, 70);
+    margin: 0 auto;
+    border: .3rem solid rgb(46, 41, 23);
+}
+
+#heart {
+    display: block;
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    line-height: 8rem;
+    text-align: center;
+    color: rgb(233, 41, 41);
+    background: transparent;
+    z-index: 2;
+}
