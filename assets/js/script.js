@@ -15,18 +15,19 @@ var topObj = "";
 var leftObj = "";
 var count = 0;
 
+//------------Game Control
 
-//------Create Random Div
-createRandomDiv(gameBox);
-
-//------Game Control
+//   Play Game
 start.addEventListener("click", function() {
     
     this.style.opacity = 0;
 
+    createRandomDiv(gameBox);
+
     upKey.addEventListener("click", function () {
         goUp();
         checkHealerPosition();
+        var heart = document.querySelector("#heart");
     });
     
     rightKey.addEventListener("click", function () {
@@ -80,9 +81,11 @@ start.addEventListener("click", function() {
             });
         }
     });
-});
+    
+}, {once : true});
 
-//----------- Utils
+
+//------------Utils
 
 //   Random Number Generator
 function randomGenerator(min, max) {
@@ -92,7 +95,7 @@ function randomGenerator(min, max) {
 //   Random Div Creator
 function createRandomDiv(parent) {
 
-    topObj = randomGenerator(0,365);
+    topObj = randomGenerator(0,360);
     leftObj = randomGenerator(0,770);
 
     var div = document.createElement("div");
@@ -113,7 +116,7 @@ function createRandomDiv(parent) {
 
 }
 
-// Healer Control Functions Start
+//   Healer Control Functions Start
 function goUp() {
     if(parseInt(healer.style.top.slice(0, -2)) > 0){
         healer.style.top = (parseInt(healer.style.top.slice(0, -2)) - 7.5) + 'px';
@@ -136,8 +139,7 @@ function goLeft() {
     if(parseInt(healer.style.left.slice(0, -2)) > 0){
         healer.style.left = (parseInt(healer.style.left.slice(0, -2)) - 7.5) + 'px';
       }
-}
-//   Healer Control Functions End
+} //   Healer Control Functions End
 
 //   Healer Position Checker
 function checkHealerPosition() {
@@ -148,6 +150,7 @@ function checkHealerPosition() {
         var topHeart = parseInt(patient.style.top.slice(0, -2))-50;
         var leftHeart = parseInt(patient.style.left.slice(0, -2))-30;
     
+        play();
         var heart = document.createElement("div");
     
         heart.setAttribute("id", "heart");
@@ -161,18 +164,9 @@ function checkHealerPosition() {
     
         heart.appendChild(heartIcon);
 
-        heart.style.fontSize = "5rem";
-        heart.style.fontSize = "15rem";
-
-        heart.animate([
-                
-            { transform: 'translate(1px, 1px)', fontSize: "5rem" },
-            { transform: 'translate(-1px, -2px)', fontSize: "15rem"},
-            { transform: 'translate(1px, 1px)', fontSize: "5rem"}
-        ],
-            { 
-                duration: 800,
-            });
+        heart.addEventListener("animationend", function () {
+            heart.remove();
+        });
         
         heart.style.fontSize = "0";    
             
@@ -181,4 +175,9 @@ function checkHealerPosition() {
         count++;
         score.innerText = "Hesab: " + count;
     }
+}
+
+function play() {
+    var audio = document.querySelector("#audio");
+    audio.play();
 }

@@ -148,4 +148,18 @@ ul {
     color: rgb(233, 41, 41);
     background: transparent;
     z-index: 2;
+    animation: myAnimation .8s;
+    cursor: pointer;
+}
+
+@keyframes myAnimation {
+    from {
+        font-size: 0;
+        opacity: 1;
+    }
+
+    to {
+        font-size: 15rem;
+        opacity: 0;
+    }
 }
