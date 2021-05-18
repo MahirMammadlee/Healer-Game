@@ -1,4 +1,2 @@
 # Healer Game
- Xalqını sevən həkim xəstələri sağaldır..))
-
-HTML / CSS / pure Js
+ Xalqını sevən həkim xəstələri sağaldır..)) (HTML / CSS / pure Js)
